@@ -1,0 +1,17 @@
+{
+  "Title": "Testing Builder",
+  "Buttons": [
+    {
+      "Text": "Level Select",
+      "Action": "LevelSelect"
+    },
+    {
+      "Text" : "Settings",
+      "Action": "Settings"
+    },
+    {
+      "Text": "Exit",
+      "Action": "Leave"
+    }
+  ]
+}
