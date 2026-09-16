@@ -10,5 +10,8 @@ public static class Common
     }
 
     public static string ProjectRoot { get; } = AppContext.BaseDirectory;
-    
+
+    public static GameStatus gameStatus { get; set; } = GameStatus.gameRunning;
+
+    public static bool IsHeadless { get; set; } = false;
 }

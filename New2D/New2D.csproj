@@ -17,8 +17,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GameObjects\Character\NPC\Enemy\" />
-  </ItemGroup>
-
 </Project>

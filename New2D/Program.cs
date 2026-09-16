@@ -1,19 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-
 using New2D.GameState;
+using New2D.Helpers;
 using New2D.Scene;
 using Raylib_cs;
 
-MenuScene menu = new MenuScene();
-Raylib.InitWindow(615,300,"Game Start");
-Raylib.SetTargetFPS(60);
-GameState.InitScene(menu);
+Common.IsHeadless = args.Contains("--headless");
+
+if (Common.IsHeadless) Raylib.SetConfigFlags(ConfigFlags.HiddenWindow);
+Raylib.InitWindow(615, 300, "Game Start");
+if (!Common.IsHeadless) Raylib.SetTargetFPS(60);
+
+IScene startScene = Common.IsHeadless ? new TestLevelScene() : new MenuScene();
+GameState.InitScene(startScene);
+
 while (GameState.ShouldRun && !Raylib.WindowShouldClose())
 {
-    Raylib.BeginDrawing();
-    Raylib.ClearBackground(Color.Black);
+    if (!Common.IsHeadless)
+    {
+        Raylib.BeginDrawing();
+        Raylib.ClearBackground(Color.Black);
+    }
     GameState.Update();
-    Raylib.EndDrawing();
+    if (!Common.IsHeadless)
+        Raylib.EndDrawing();
 }
+
 GameState.Dispose();
 Raylib.CloseWindow();

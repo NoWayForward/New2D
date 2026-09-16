@@ -2,6 +2,10 @@ namespace New2D.GameObjects.Character;
 
 public interface IControllable
 {
-    public bool Control();
+    public void ControlX();
+    public void ControlY();
+    public bool UpdatedX { get; }
+    public bool UpdatedY { get; }
+
     public void Revert();
 }
